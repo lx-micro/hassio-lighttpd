@@ -1,0 +1,5 @@
+{
+  "name": "hassio_lighttpd",
+  "url": "https://github.com/lx-micro/hassio-lighttpd",
+  "maintainer": "Alvaro Ramos <alvaro.ramos.soltero@gmail.com>"
+}

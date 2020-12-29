@@ -13,9 +13,5 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 EXPOSE 8000
-VOLUME /config/www
-
-RUN mkdir -p /run/lighttpd
-RUN chown lighttpd. /run/lighttpd
 
 CMD [ "/run.sh" ]

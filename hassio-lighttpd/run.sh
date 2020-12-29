@@ -29,8 +29,8 @@ rs="$?"
 
 if [[ ! -z $rs ]]; then
         if [ $((rs)) == 0 ]; then
-                echo "existe"
+                lighttpd -f /etc/lighttpd/lighttpd.conf & wait ${!}
         else
-                echo "no existe"
+                exit 1
         fi
 fi

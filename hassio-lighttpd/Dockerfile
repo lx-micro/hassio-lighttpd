@@ -1,16 +1,21 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV LANG C.UTF-8
 
-# Install requirements for add-on
 RUN apk update && apk add --no-cache lighttpd && rm -rf /var/cache/apk/*
 
-COPY lighttpd.conf /lighttpd.conf
+ADD lighttpd.conf /lighttpd.conf
+
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+EXPOSE 8000
+VOLUME /config/www
+
+RUN mkdir -p /run/lighttpd
+RUN chown lighttpd. /run/lighttpd
 
 CMD [ "/run.sh" ]

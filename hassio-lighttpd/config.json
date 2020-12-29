@@ -1,37 +1,37 @@
 {
-  "name": "hassio lighttpd",
-  "version": "1.0.0",
-  "slug": "hassio-lighttpd",
-  "description": "webserver for hassio",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "url": "https://github.com/lx-micro/hassio-lighttpd",
-  "startup": "system",
-  "boot": "auto",
-  "host_network": true,
-  "apparmor": true,
-  "host_dbus": true,
-  "full_access": true,
-  "privileged": [
-    "NET_ADMIN",
-    "SYS_ADMIN",
-    "SYS_RAWIO",
-    "SYS_TIME",
-    "SYS_NICE"
-  ],
-  "devices": [
-    "/dev/mem:/dev/mem:rwm"
-  ],
-  "map": [
-    "config:rw",
-    "ssl:rw",
-    "addons:rw",
-    "share:rw",
-    "backup:rw"
-  ],
-  "options": {
-    "server_port": 8000
-  },
-  "schema": {
-    "server_port": "port"
-  }
+    "name": "hassio lighttpd",
+    "version": "1.0.1",
+    "slug": "hassio-lighttpd",
+    "description": "webserver for hassio",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "url": "https://github.com/lx-micro/hassio-lighttpd",
+    "startup": "system",
+    "boot": "auto",
+    "host_network": true,
+    "apparmor": true,
+    "host_dbus": true,
+    "full_access": true,
+    "privileged": [
+        "NET_ADMIN",
+        "SYS_ADMIN",
+        "SYS_RAWIO",
+        "SYS_TIME",
+        "SYS_NICE"
+    ],
+    "devices": [
+        "/dev/mem:/dev/mem:rwm"
+    ],
+    "map": [
+        "config:rw",
+        "ssl:rw",
+        "addons:rw",
+        "share:rw",
+        "backup:rw"
+    ],
+    "options": {
+        "server_port": 8000
+    },
+    "schema": {
+        "server_port": "port"
+    }
 }

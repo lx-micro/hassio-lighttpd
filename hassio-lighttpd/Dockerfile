@@ -12,9 +12,6 @@ COPY lighttpd.conf /
 EXPOSE 8000
 VOLUME /conf/www
 
-RUN mkdir -p /run/lighttpd/
-RUN chown lighttpd. /run/lighttpd/
-
 COPY run.sh /
 RUN chmod a+x /run.sh
 

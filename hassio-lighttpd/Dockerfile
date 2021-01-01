@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV LANG C.UTF-8
 
-RUN apk update && apk add --no-cache sudo lighttpd libuser shadow && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache sudo lighttpd shadow && rm -rf /var/cache/apk/*
 
 COPY lighttpd.conf /
 COPY run.sh /

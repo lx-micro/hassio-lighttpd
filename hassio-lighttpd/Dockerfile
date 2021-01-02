@@ -28,6 +28,7 @@ RUN apk update && apk add --no-cache sudo \
     php7-mysqli \
     php7-simplexml \
     php7-xmlwriter \
+    php7-curl \
     && rm -rf /var/cache/apk/*
 
 COPY lighttpd.conf /

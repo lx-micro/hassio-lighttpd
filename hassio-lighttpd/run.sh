@@ -105,11 +105,11 @@ function buildir(){
 }
 
 function phpfix(){
-  echo 'cgi.fix_pathinfo = 1' > /etc/php7/php.ini
+  echo 'cgi.fix_pathinfo = 1' >> /etc/php7/php.ini
   if [ "$?" -ne 0 ]; then
     return 0
   fi
-  echo 'date.timezone="America/Mexico_City"' > /etc/php7/php.ini
+  echo 'date.timezone="America/Mexico_City"' >> /etc/php7/php.ini
   if [ "$?" -ne 0 ]; then
     return 0
   fi

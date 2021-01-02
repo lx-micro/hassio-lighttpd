@@ -104,6 +104,18 @@ function buildir(){
   return 0
 }
 
+function phpfix(){
+  echo 'cgi.fix_pathinfo = 1' > /etc/php7/php.ini
+  if [ "$?" -ne 0 ]; then
+    return 0
+  fi
+  echo 'date.timezone="America/Mexico_City"' > /etc/php7/php.ini
+  if [ "$?" -ne 0 ]; then
+    return 0
+  fi
+  return 1
+}
+
 trap 'term_handler' SIGTERM
 
 buildir
@@ -121,6 +133,12 @@ fi
 addgroup
 if [[ ! "$?" == 1 ]]; then
   echo "Error: Group not created"
+  exit 1
+fi
+
+phpfix
+if [[ ! "$?" == 1 ]]; then
+  echo "Error: php not fixed"
   exit 1
 fi
 

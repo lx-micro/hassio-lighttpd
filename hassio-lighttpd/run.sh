@@ -53,6 +53,18 @@ function addgroup(){
     if [ "$?" -ne 0 ]; then
        return 0
     fi
+    sudo /bin/mkdir -p /run/lighttpd
+    if [ "$?" -ne 0 ]; then
+      return 0
+    else
+      return 1
+    fi
+    sudo chown -R www-data. /run/lighttpd
+    if [ "$?" -ne 0 ]; then
+      return 0
+    else
+      return 1
+    fi
   fi
   wwwgrp=$(sudo /usr/bin/id -nG lighttpd 2>&1)
   wwwgrp=$(echo $wwwgrp | awk '{ if(match($0,/lighttpd www-data/)){ print 1 } else { print 0 }}')
